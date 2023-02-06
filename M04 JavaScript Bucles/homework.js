@@ -175,7 +175,7 @@ function operadoresLogicos(num1, num2, num3) {
       return "Hay negativos";
    } else if (num3>num1 && num3>num2) {
       return num3 += 1;
-   } else if (num1==num2==num3==0) {
+   } else if (num1==0 && num2==0 && num3==0) {
       return "Error";
    } else {
       return false
@@ -189,7 +189,18 @@ function esPrimo(num) {
    // [Pista 2]: puedes resolverlo utilizando un `bucle for`.
    // [Nota]: los números negativos, 0 y 1 NO son números primos.
    // Tu código:
-   if (num)
+   if (num > 2) {
+      var resto;
+      for (i=2; i<num; i++) {
+         resto = num%i;
+         if (resto == 0)  {
+            return false;
+         }
+      return true;
+      }
+   } else {
+      return false;
+   }
 }
 
 function esVerdadero(valor) {
@@ -199,7 +210,7 @@ function esVerdadero(valor) {
    if (valor) {
       return "Soy verdadero";
    } else {
-      return false;
+      return "Soy falso";
    }
 }
 
@@ -207,8 +218,9 @@ function tieneTresDigitos(num) {
    // Si el número recibido tiene tres dígitos retornar true.
    // Caso contrario, retornar false.
    // Tu código:
-   numLong = num.length;
-   if (numLong ==3) {
+   var numStr = num.toString();
+   var numLong = numStr.length;
+   if (numLong == 3) {
       return true;
    } else {
       return false;
@@ -220,6 +232,13 @@ function doWhile(num) {
    // Retornar el valor final.
    // Utilizar el bucle Do-While.
    // Tu código:
+   var result = num;
+   var conteo = 0;
+   do {
+      result += 5 ;
+      conteo += 1;
+   } while (conteo < 8);
+   return result;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
